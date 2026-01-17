@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: app
+  rabbitmq:
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+rabbitmq:
+  exchange: notification.exchange
+  queue: notification.emails.queue
+  routing-key: notification.emails.sent

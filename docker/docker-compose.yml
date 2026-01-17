@@ -1,0 +1,18 @@
+services:
+    rabbitmq:
+        image: rabbitmq:4.2.2-management
+        container_name: rabbitmq
+        hostname: rabbitmq
+        restart: unless-stopped
+        environment:
+            RABBITMQ_DEFAULT_USER: ${USER_RABBITMQ}
+            RABBITMQ_DEFAULT_PASS: ${PASSWORD_RABBITMQ}
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        volumes:
+            - rabbitmq-data:/var/lib/rabbitmq
+
+volumes:
+    rabbitmq-data:
+        driver: local
